@@ -283,6 +283,7 @@ $$
    $$
 2. assume $$m$$ and $$n$$ are not co-prime:
    since $$n$$ is equal to the product of prime numbers $$p$$ and $$q$$，so $$m$$ must equal to $$hp$$ or $$hq$$ ($$h$$ is an integer)，Assume $$m=hp$$，since $$hp$$ and $$q$$ must be co-prime，since Fermat's little theorem, we get:
+
    $$
         \begin{array}{lr}
             (hp)^{q-1} ≡ 1 \ (mod \ q) \\
@@ -296,11 +297,15 @@ $$
             (hp)^{ed} = tq + hp
         \end{array}
    $$
+
    At this time, $$t$$ must be divisible by $$p$$, that is, $$t=t'p$$, then:
+
    $$
     (hp)^{ed} = t'pq + hp
    $$
+
    since $$m=hp$$，$$n=pq$$，then:
+
    $$
         \begin{array}{lr}
              m^{ed} = t'n + m \\
