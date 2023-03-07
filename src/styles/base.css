@@ -93,6 +93,15 @@
     @apply text-skin-accent;
   }
 
+  mjx-container[jax="SVG"][display="true"] {
+    overflow: auto;
+  }
+
+  mjx-container[jax="SVG"] > svg {
+    width: auto;
+    height: auto;
+  }
+
   /* ===== scrollbar ===== */
   html {
     overflow-y: scroll;

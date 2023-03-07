@@ -4,7 +4,7 @@ import react from "@astrojs/react";
 import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
 import remarkMath from "remark-math";
-import rehypeMathJaxSvg from "rehype-mathjax";
+import rehypeMathJaxSvg from "rehype-mathjax/svg";
 import rehypeKatex from "rehype-katex";
 import sitemap from "@astrojs/sitemap";
 
@@ -33,8 +33,8 @@ export default defineConfig({
     ],
     rehypePlugins: [
       //'rehype-slug', < needed only prior beta.22
-      // rehypeMathJaxSvg
-      rehypeKatex,
+      rehypeMathJaxSvg,
+      // rehypeKatex,
     ],
     shikiConfig: {
       theme: "one-dark-pro",
