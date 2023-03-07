@@ -157,8 +157,11 @@ $$ b = a^{\varphi(n)-1}$$
 
 1 - generate two random unequal **large prime numbers** **p** and **q**, whose product number of $$n = p \ · q$$ is the bit of the key
 Number, usually set the number of bits is 1024, 2048, 3072, 4096, etc.
+
 2 - calculate the product of **p** and **q** **n**
+
 3 - calculate the Euler function $$\varphi(n)=(p-1)(q-1)$$ of n, and get $$\varphi(n)=(p-1)(q-1)$$
+
 4 - randomly select an integer **e**, with the condition **1 < e < $$\varphi(n)$$**, and **e** and $$\varphi(n)$$
 
 > _In openssl $$e$$ is fixed at 65537_ > [***point***] **Fermat number**: For **e**, **'3, 5, 17, 257 and 65537'** are usually available.Because they are all prime numbers, and only the second bit in the binary are 1, which can speed up the calculation of **d**. The optional values of **e** are actually the first 5 numbers of the **Fermat number**, and the Fermat number is defined as $$F_x = 2^{2^{x}}+1$$, $$F_0$$ to $$F_4$$ are prime numbers, but starting with $$F_5$$ is not a prime number. For example: $$F_5 = 4294967297 = 641 \times 6700471$$, in practice, $$F_4=65537$$ is usually selected as $$e$$.
@@ -201,11 +204,17 @@ $$
 #### Example
 
 1：$$p = 3, q = 7$$
+
 2：$$n = p * q = 21$$
+
 3：$$\varphi(n)=(p-1)(q-1)= 2 * 6 = 12$$
+
 4：$$e = 5$$
+
 5：$$d = 17$$
+
 6：public key$$(n, e)=(21, 5)$$, private key$$(n, d)=(21, 17)$$
+
 7：Assuming $$m = 2$$, substituting the formula:
 
 $$
@@ -218,8 +227,11 @@ $$
 #### Reliability
 
 number: $$\ p \ q \ n \ \varphi(n) \ e \ d$$
+
 public key: ( **n** 和 **e** )
+
 private key: ( **n** 和 **d** )
+
 So **d** can be derived if **n** and **e** are known?
 
 1. $$e \ ·d \equiv 1 \ (mod \ \varphi(n))$$, only $$e$$ and $$\varphi(n)$$ can be used to calculate $$d$$;
