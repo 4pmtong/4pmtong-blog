@@ -164,17 +164,19 @@ Number, usually set the number of bits is 1024, 2048, 3072, 4096, etc.
 > _In openssl $$e$$ is fixed at 65537_ > [***point***] **Fermat number**: For **e**, **'3, 5, 17, 257 and 65537'** are usually available.Because they are all prime numbers, and only the second bit in the binary are 1, which can speed up the calculation of **d**. The optional values of **e** are actually the first 5 numbers of the **Fermat number**, and the Fermat number is defined as $$F_x = 2^{2^{x}}+1$$, $$F_0$$ to $$F_4$$ are prime numbers, but starting with $$F_5$$ is not a prime number. For example: $$F_5 = 4294967297 = 641 \times 6700471$$, in practice, $$F_4=65537$$ is usually selected as $$e$$.
 
 5 - calculate Modular multiplicative inverse **d** of **e** to $$\varphi(n)$$
+
 $$
         e · d \equiv 1 \ (mod \ \varphi(n))
-    $$
+$$
 
 6 - **n** and **e** are encapsulated into a public key, and **n** and **d** are encapsulated into a private key.
+
 $$
         \begin{array}{lr}
             (n, e) => (21, 5) \\
             (n, d) => (21, 17)
         \end{array}
-    $$
+$$
 
 7 - for the information $m(0 \le m<n)$ , the encryption and decryption functions are as follows:
 
@@ -188,12 +190,13 @@ $$
   $$
 
 we need to proof:
+
 $$
         \begin{array}{lr}
             m = RsaPrivate(RsaPublic(m)) \\
             m = RsaPublic(RsaPrivate(m))
         \end{array}
-    $$
+$$
 
 #### Example
 
