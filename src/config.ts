@@ -3,7 +3,7 @@ import type { SocialObjects } from "./types";
 export const SITE = {
   website: "https://4pmtong.com/",
   author: "4pmtong",
-  desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
+  desc: "Engineering notes on agents, environments, and systems — by Tong Chen",
   title: "4pmtong",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,

@@ -18,7 +18,9 @@ export default defineConfig({
       },
     }),
     react(),
-    sitemap(),
+    sitemap({
+      filter: page => !["/resume", "/resume/"].includes(new URL(page).pathname),
+    }),
   ],
   markdown: {
     remarkPlugins: [

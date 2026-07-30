@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tong Chen — Resume</title>
+<style>
+  @page {
+    size: A4;
+    margin: 13mm 17mm 14mm 17mm;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --accent: #006cac;
+    --ink: #1f2430;
+    --muted: #5c6470;
+    --rule: #d9dee5;
+  }
+  html { -webkit-print-color-adjust: exact; }
+  body {
+    font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    font-size: 9.2pt;
+    line-height: 1.42;
+  }
+
+  /* ===== Header ===== */
+  header { padding-bottom: 7pt; border-bottom: 1.6pt solid var(--accent); }
+  h1 {
+    font-size: 20pt;
+    font-weight: 700;
+    letter-spacing: 0.5pt;
+  }
+  .headline {
+    margin-top: 3pt;
+    font-size: 9.3pt;
+    font-weight: 500;
+    color: var(--accent);
+  }
+  .contact {
+    margin-top: 5pt;
+    font-size: 8.1pt;
+    color: var(--muted);
+  }
+  .contact span + span::before { content: "  ·  "; color: var(--rule); }
+  .contact a { color: var(--muted); text-decoration: none; }
+
+  .tagline {
+    margin-top: 6pt;
+    font-size: 9.6pt;
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  /* ===== Sections ===== */
+  h2 {
+    margin: 12pt 0 5.5pt;
+    font-size: 9.6pt;
+    break-after: avoid-page;
+    font-weight: 700;
+    letter-spacing: 1.6pt;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  p { margin-top: 3.5pt; }
+  p:first-of-type { margin-top: 0; }
+
+  /* About angles */
+  .angles { margin-top: 3.5pt; list-style: none; }
+  .angles li { margin-top: 3pt; padding-left: 11pt; position: relative; }
+  .angles li::before {
+    content: "▸";
+    position: absolute; left: 0;
+    color: var(--accent);
+  }
+
+  /* ===== Experience ===== */
+  .job { margin-top: 9pt; }
+  .job:first-of-type { margin-top: 0; }
+  .job-head {
+    break-after: avoid-page;
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  .job-head h3 { font-size: 10.1pt; font-weight: 600; }
+  .job-head h3 .company { font-weight: 600; color: var(--accent); }
+  .job-meta { font-size: 8.1pt; color: var(--muted); white-space: nowrap; }
+  .job p { margin-top: 3.2pt; }
+  .group-title {
+    margin-top: 4pt;
+    font-size: 8.2pt;
+    break-after: avoid-page;
+    font-weight: 600;
+    letter-spacing: 1.2pt;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .job ul { margin-top: 2pt; list-style: none; }
+  .job ul li { margin-top: 2.5pt; padding-left: 10pt; position: relative; break-inside: avoid-page; }
+  .job ul li::before {
+    content: "–";
+    position: absolute; left: 0;
+    color: var(--accent);
+  }
+
+  /* ===== Education ===== */
+  .edu-head { display: flex; justify-content: space-between; align-items: baseline; }
+  .edu-head h3 { font-size: 10.1pt; font-weight: 600; }
+
+  /* ===== Skills ===== */
+  .skills { list-style: none; display: flex; flex-wrap: wrap; gap: 4pt 5pt; }
+  .skills li {
+    font-size: 8.3pt;
+    padding: 1.5pt 6pt 2pt;
+    border: 0.7pt solid var(--rule);
+    border-radius: 8pt;
+    color: var(--ink);
+  }
+
+  .avoid-break { break-inside: avoid-page; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Tong Chen</h1>
+  <div class="headline">Senior AI Engineer @ Eigent&ensp;|&ensp;Leading Product Engineering&ensp;|&ensp;Agentic Systems · LLM Infra · Agent Evals&ensp;|&ensp;Singapore&nbsp;PR</div>
+  <div class="contact">
+    <span>Singapore</span><span>web_chentong@163.com</span><span>github.com/4pmtong</span><span>linkedin.com/in/tong-chen-4a1b29181</span><span>www.4pmtong.com</span>
+  </div>
+  <div class="tagline">Agents will do the work. I build the worlds they work in.</div>
+</header>
+
+<h2>Experience</h2>
+
+<div class="job">
+  <div class="job-head">
+    <h3><span class="company">Eigent</span> — Senior AI Engineer</h3>
+    <div class="job-meta">Jan 2026 – Present · Singapore</div>
+  </div>
+  <p>Early core member of Eigent — open-source desktop multi-agent workforce built on CAMEL-AI (github.com/eigent-ai/eigent). I own the architecture end-to-end: took over the early codebase, led a ground-up refactor — agent runtime, backend, and deployment model — and now drive every layer of the system.</p>
+  <div class="group-title">Agent Runtime &amp; Stability</div>
+  <ul>
+    <li>Long-horizon task reliability: checkpointed execution state, automatic recovery from mid-task failures (model timeouts, tool errors, crashes), idempotent retries — agents resume instead of restarting</li>
+    <li>Real-world execution, not chat: agents control the browser, terminal, and file system end-to-end — with sandboxing, per-tool error containment, and human approval gates for destructive actions</li>
+    <li>Concurrency: parallel multi-agent execution with inter-agent state coordination, backpressure on tool calls, context-window budget management</li>
+    <li>Observability: every agent action, tool call, and artifact streamed live to the desktop client — full execution traces for debugging</li>
+  </ul>
+  <div class="group-title">Architecture &amp; Infrastructure</div>
+  <ul>
+    <li>Dynamic task decomposition: planner builds a DAG of subtasks dispatched to specialized agents (browser, terminal, document, multimodal) in parallel</li>
+    <li>One codebase, two deployments: fully local self-hosted (Docker, data on-device) and managed cloud — forcing clean abstractions at every layer</li>
+    <li>Model-agnostic LLM gateway: routing across cloud APIs and local inference, with cost controls, fallback chains, abuse prevention</li>
+    <li>Backend: Python/FastAPI, PostgreSQL, Redis — async task processing, credit/quota systems</li>
+    <li>Mobile RL environments for agent training and evaluation</li>
+  </ul>
+  <p>Design philosophy: the durable layer of the AI stack isn't the agent — it's the environment it runs in. Eigent's workspace is a configurable execution environment defining what agents can see, use, and act on.</p>
+</div>
+
+<div class="job">
+  <div class="job-head">
+    <h3><span class="company">ByteWizards</span> — Founder &amp; CTO</h3>
+    <div class="job-meta">Dec 2023 – Present · Singapore</div>
+  </div>
+  <p>Founded ByteWizards to build AI-native products on one thesis: natural language becomes the interface, and agents do the work — software first, hardware next.</p>
+  <ul>
+    <li>xSale — domain agents for a vertical. Built a multi-agent system running cross-border influencer marketing end-to-end: AI-driven creator discovery and matching, automated outreach, and content generation on TikTok (approved TikTok Marketing API partner). Designed the agent pipeline and LLM workflow architecture; led a 7-person team from 0→1 to launch.</li>
+    <li>NLUI — attacking the interaction layer. A mobile MCP host where users complete real-world tasks (ride-hailing, food delivery) through pure conversation, no app-switching. Designed the agent orchestration layer, tool-calling architecture, and mobile client. Established a research collaboration with Tsinghua University.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-head">
+    <h3><span class="company">Shopee</span> — Senior Full Stack Engineer</h3>
+    <div class="job-meta">Apr 2019 – Nov 2023 · Singapore</div>
+  </div>
+  <p>Worked on high-performance tracking infrastructure and frontend platform engineering for large-scale e-commerce systems.</p>
+  <ul>
+    <li>Tracking Infrastructure: Architected Shopee's core tracking server and event pipeline services, supporting 1M+ QPS during the 12.12 peak traffic period with zero downtime. Managed event pipelines and services with a focus on scalability, reliability, performance optimization, and system stability.</li>
+    <li>Frontend Team Leadership: Led a 5-person frontend team to build and maintain multiple data visualization platforms, including CampaignStation, BrandPortal, and Tidal, supporting business analytics, campaign operations, and internal decision-making workflows.</li>
+    <li>Built internal UI libraries and monitoring systems to improve development efficiency, product consistency, platform maintainability, and operational visibility.</li>
+    <li>Collaborated with backend, product, data, and business teams across infrastructure, frontend architecture, analytics platforms, and monitoring systems.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-head">
+    <h3><span class="company">Zuzuche.com</span> — Senior Frontend Engineer</h3>
+    <div class="job-meta">Mar 2018 – Mar 2019 · Guangzhou</div>
+  </div>
+  <p>Led frontend development for web and mobile applications — user-facing features, reusable frontend infrastructure, and data tracking.</p>
+  <ul>
+    <li>Built reusable UI libraries standardizing frontend development across product pages</li>
+    <li>Designed and implemented the data tracking system supporting user behavior analytics and business decision-making</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-head">
+    <h3><span class="company">Kingdee International Software Group</span> — Senior Frontend Engineer</h3>
+    <div class="job-meta">Jul 2016 – Mar 2018 · Shenzhen</div>
+  </div>
+  <p>Developed big data products and explored blockchain-related solutions at Kingdee Research Institute, focusing on enterprise software scenarios and data-heavy product experiences.</p>
+  <ul>
+    <li>Built frontend solutions for big data products, with a focus on data presentation, product usability, and enterprise application experience.</li>
+    <li>Participated in blockchain solution exploration, technical research, prototype development, and early-stage product validation.</li>
+    <li>Contributed to research-driven product development, working across frontend engineering, enterprise software, data visualization, and emerging technology exploration.</li>
+  </ul>
+</div>
+
+<div class="avoid-break">
+<h2>Education</h2>
+<div class="edu-head">
+  <h3>Central China Normal University</h3>
+  <div class="job-meta">Sep 2012 – Jun 2016</div>
+</div>
+<p>Bachelor of Science (Dual Degree), Mathematics &amp; Applied Mathematics, and Physics</p>
+</div>
+
+<div class="avoid-break">
+<h2>Skills</h2>
+<ul class="skills">
+  <li>AI Agents</li><li>Multi-agent Systems</li><li>Large Language Models (LLM)</li><li>Software Architecture</li><li>Distributed Systems</li><li>Python</li><li>Go</li><li>Kafka</li><li>ClickHouse</li><li>Kubernetes</li><li>Docker</li><li>FastAPI</li><li>PostgreSQL</li><li>Redis</li><li>MCP</li><li>React</li>
+</ul>
+</div>
+
+</body>
+</html>

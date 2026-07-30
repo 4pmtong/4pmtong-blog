@@ -55,7 +55,7 @@
   },
   "lint-staged": {
     "*": [
-      "prettier --plugin-search-dir=. --write"
+      "prettier --plugin-search-dir=. --ignore-unknown --write"
     ]
   }
 }

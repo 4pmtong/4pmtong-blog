@@ -9,6 +9,7 @@ export interface Props {
   author?: string;
   description?: string;
   ogImage?: string;
+  noindex?: boolean;
 }
 
 const {
@@ -16,6 +17,7 @@ const {
   author = SITE.author,
   description = SITE.desc,
   ogImage = SITE.ogImage,
+  noindex = false,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -36,6 +38,8 @@ const fallbackImageURL = new URL(SITE.ogImage, Astro.url.origin).href;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
+
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <!-- General Meta Tags -->
     <title>{title}</title>

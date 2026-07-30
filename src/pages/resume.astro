@@ -1,0 +1,312 @@
+---
+import { SITE } from "@config";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const summaryParagraphs = [
+  "Agents will do the work. I build the worlds they work in.",
+  "My working thesis: the durable layer of the AI stack isn't the prompt, the agent, or the workflow — it's the environment. The same agent connected to GitHub is an engineering agent; connected to a production line, an industrial agent. Models supply intelligence. Environments define capability. And as language replaces the interface, software gets rebuilt first — then, I suspect, the hardware beneath it.",
+  "I've been testing this from three angles:",
+];
+
+const summaryAngles = [
+  "Vertical — xSale. Domain agents running cross-border influencer marketing end-to-end: creator discovery, outreach, content generation. Depth in one domain taught me that agents deliver real outcomes when domain knowledge lives in their environment, not just their prompts.",
+  "Interface — NLUI. A mobile app where users complete real-world tasks through pure conversation — no apps, no switching. Built on a hunch I still hold: most of today's UI is scaffolding waiting to be removed. Software first, hardware next. Led to a research collaboration with Tsinghua University.",
+  "Platform — Eigent (eigent.ai). An open-source desktop multi-agent workforce built on CAMEL-AI. I lead product engineering — agent architecture, memory and context systems, LLM infrastructure — and build the other worlds agents need: evaluation and RL training environments.",
+];
+
+const summaryClosing = [
+  "The question I keep turning over: enterprises will configure and govern shared environments — but every person's environment is unique, accumulated rather than installed. So the consumer form may not be a shared workspace at all, but a personal agent that learns its world. Configured environments for organizations, learned environments for people. I'm building to find out which — or whether the answer is both.",
+  "Underneath: infrastructure rigor from Shopee (tracking systems at 1M+ QPS, zero downtime at peak) and repeated 0→1 delivery.",
+  "Don't just build an agent. Build the world where any agent can work.",
+];
+
+const experience = [
+  {
+    title: "Senior AI Engineer",
+    company: "Eigent",
+    period: "January 2026 - Present",
+    location: "Singapore",
+    intro: [
+      "Early core member of Eigent — open-source desktop multi-agent workforce built on CAMEL-AI. https://github.com/eigent-ai/eigent",
+      "I own the architecture end-to-end: took over the early codebase, led a ground-up refactor — agent runtime, backend, and deployment model — and now drive every layer of the system.",
+    ],
+    groups: [
+      {
+        heading: "Agent Runtime & Stability",
+        bullets: [
+          "Long-horizon task reliability: checkpointed execution state, automatic recovery from mid-task failures (model timeouts, tool errors, crashes), idempotent retries — agents resume instead of restarting",
+          "Real-world execution, not chat: agents control the browser, terminal, and file system end-to-end — with sandboxing, per-tool error containment, and human approval gates for destructive actions",
+          "Concurrency: parallel multi-agent execution with inter-agent state coordination, backpressure on tool calls, context-window budget management",
+          "Observability: every agent action, tool call, and artifact streamed live to the desktop client — full execution traces for debugging",
+        ],
+      },
+      {
+        heading: "Architecture & Infrastructure",
+        bullets: [
+          "Dynamic task decomposition: planner builds a DAG of subtasks dispatched to specialized agents (browser, terminal, document, multimodal) in parallel",
+          "One codebase, two deployments: fully local self-hosted (Docker, data on-device) and managed cloud — forcing clean abstractions at every layer",
+          "Model-agnostic LLM gateway: routing across cloud APIs and local inference, with cost controls, fallback chains, abuse prevention",
+          "Backend: Python/FastAPI, PostgreSQL, Redis — async task processing, credit/quota systems",
+          "Mobile RL environments for agent training and evaluation",
+        ],
+      },
+    ],
+    outro: [
+      "Design philosophy: the durable layer of the AI stack isn't the agent — it's the environment it runs in. Eigent's workspace is a configurable execution environment defining what agents can see, use, and act on.",
+    ],
+  },
+  {
+    title: "Founder & CTO",
+    company: "ByteWizards",
+    period: "December 2023 - Present",
+    location: "Singapore",
+    intro: [
+      "Founded ByteWizards to build AI-native products on one thesis: natural language becomes the interface, and agents do the work — software first, hardware next.",
+    ],
+    groups: [
+      {
+        bullets: [
+          "xSale — domain agents for a vertical. Built a multi-agent system running cross-border influencer marketing end-to-end: AI-driven creator discovery and matching, automated outreach, and content generation on TikTok (approved TikTok Marketing API partner). Designed the agent pipeline and LLM workflow architecture; led a 7-person team from 0→1 to launch.",
+          "NLUI — attacking the interaction layer. A mobile MCP host where users complete real-world tasks (ride-hailing, food delivery) through pure conversation, no app-switching. Designed the agent orchestration layer, tool-calling architecture, and mobile client. Established a research collaboration with Tsinghua University.",
+        ],
+      },
+    ],
+    outro: [],
+  },
+  {
+    title: "Senior Full Stack Engineer",
+    company: "Shopee",
+    period: "April 2019 - November 2023",
+    location: "Singapore",
+    intro: [
+      "Worked on high-performance tracking infrastructure and frontend platform engineering for large-scale e-commerce systems.",
+    ],
+    groups: [
+      {
+        bullets: [
+          "Tracking Infrastructure: Architected Shopee's core tracking server and event pipeline services, supporting 1M+ QPS during the 12.12 peak traffic period with zero downtime. Managed event pipelines and services with a focus on scalability, reliability, performance optimization, and system stability.",
+          "Frontend Team Leadership: Led a 5-person frontend team to build and maintain multiple data visualization platforms, including CampaignStation, BrandPortal, and Tidal, supporting business analytics, campaign operations, and internal decision-making workflows.",
+          "Built internal UI libraries and monitoring systems to improve development efficiency, product consistency, platform maintainability, and operational visibility.",
+          "Collaborated with backend, product, data, and business teams across infrastructure, frontend architecture, analytics platforms, and monitoring systems.",
+        ],
+      },
+    ],
+    outro: [],
+  },
+  {
+    title: "Senior Frontend Engineer",
+    company: "Zuzuche.com",
+    period: "March 2018 - March 2019",
+    location: "Guangzhou",
+    intro: [
+      "Led frontend development for web and mobile applications — user-facing features, reusable frontend infrastructure, and data tracking.",
+    ],
+    groups: [
+      {
+        bullets: [
+          "Built reusable UI libraries standardizing frontend development across product pages",
+          "Designed and implemented the data tracking system supporting user behavior analytics and business decision-making",
+        ],
+      },
+    ],
+    outro: [],
+  },
+  {
+    title: "Senior Frontend Engineer",
+    company: "Kingdee International Software Group",
+    period: "July 2016 - March 2018",
+    location: "Shenzhen",
+    intro: [
+      "Developed big data products and explored blockchain-related solutions at Kingdee Research Institute, focusing on enterprise software scenarios and data-heavy product experiences.",
+    ],
+    groups: [
+      {
+        bullets: [
+          "Built frontend solutions for big data products, with a focus on data presentation, product usability, and enterprise application experience.",
+          "Participated in blockchain solution exploration, technical research, prototype development, and early-stage product validation.",
+          "Contributed to research-driven product development, working across frontend engineering, enterprise software, data visualization, and emerging technology exploration.",
+        ],
+      },
+    ],
+    outro: [],
+  },
+];
+
+const skills = [
+  "AI Agents",
+  "Multi-agent Systems",
+  "Large Language Models (LLM)",
+  "Software Architecture",
+  "Distributed Systems",
+  "Python",
+  "Go",
+  "Kafka",
+  "ClickHouse",
+  "Kubernetes",
+  "Docker",
+  "FastAPI",
+  "PostgreSQL",
+  "Redis",
+  "MCP",
+  "React",
+];
+---
+
+<Layout
+  title={`Resume | ${SITE.title}`}
+  description="Resume of Tong Chen — Senior AI Engineer based in Singapore."
+  noindex
+>
+  <Header />
+  <Breadcrumbs />
+  <main id="main-content">
+    <section id="resume" class="mb-16 max-w-3xl">
+      <!-- ===== Intro ===== -->
+      <div id="resume-intro">
+        <h1 class="text-2xl font-bold tracking-wider sm:text-3xl">Tong Chen</h1>
+        <p class="mt-3 font-medium">
+          Senior AI Engineer @ Eigent | Leading Product Engineering | Agentic
+          Systems · LLM Infra · Agent Evals | Singapore PR
+        </p>
+        <p class="mt-2 opacity-80">Singapore</p>
+        <ul class="mt-3 flex flex-wrap gap-x-5 gap-y-1">
+          <li>
+            <a class="resume-contact-link" href="mailto:web_chentong@163.com">
+              web_chentong@163.com
+            </a>
+          </li>
+          <li>
+            <a
+              class="resume-contact-link"
+              href="https://github.com/4pmtong"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              github.com/4pmtong
+            </a>
+          </li>
+          <li>
+            <a
+              class="resume-contact-link"
+              href="https://www.linkedin.com/in/tong-chen-4a1b29181/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- ===== About ===== -->
+      <h2 class="resume-section-title">About</h2>
+      {summaryParagraphs.map(para => <p class="resume-para">{para}</p>)}
+      <ul class="mt-4 space-y-4">
+        {
+          summaryAngles.map(angle => (
+            <li class="flex gap-2">
+              <span class="text-skin-accent" aria-hidden="true">
+                ▸
+              </span>
+              <span>{angle}</span>
+            </li>
+          ))
+        }
+      </ul>
+      {summaryClosing.map(para => <p class="resume-para">{para}</p>)}
+
+      <!-- ===== Experience ===== -->
+      <h2 class="resume-section-title">Experience</h2>
+      <ul class="space-y-12">
+        {
+          experience.map(job => (
+            <li>
+              <h3 class="text-lg font-semibold">{job.title}</h3>
+              <p class="mt-1 font-medium">{job.company}</p>
+              <p class="mt-1 text-sm opacity-80">
+                {job.period} · {job.location}
+              </p>
+              {job.intro.map(para => (
+                <p class="mt-3">{para}</p>
+              ))}
+              {job.groups.map(group => (
+                <div class="mt-4">
+                  {group.heading && (
+                    <h4 class="text-sm font-semibold uppercase tracking-widest text-skin-accent">
+                      {group.heading}
+                    </h4>
+                  )}
+                  <ul class="mt-2 space-y-2">
+                    {group.bullets.map(bullet => (
+                      <li class="flex gap-2">
+                        <span class="text-skin-accent" aria-hidden="true">
+                          –
+                        </span>
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+              {job.outro.map(para => (
+                <p class="mt-4">{para}</p>
+              ))}
+            </li>
+          ))
+        }
+      </ul>
+
+      <!-- ===== Education ===== -->
+      <h2 class="resume-section-title">Education</h2>
+      <h3 class="text-lg font-semibold">Central China Normal University</h3>
+      <p class="mt-1">
+        Bachelor of Science (Dual Degree), Mathematics & Applied Mathematics,
+        and Physics
+      </p>
+      <p class="mt-1 text-sm opacity-80">September 2012 - June 2016</p>
+
+      <!-- ===== Skills ===== -->
+      <h2 class="resume-section-title">Skills</h2>
+      <ul class="flex flex-wrap gap-2">
+        {
+          skills.map(skill => (
+            <li class="rounded bg-skin-card bg-opacity-75 px-3 py-1 text-sm">
+              {skill}
+            </li>
+          ))
+        }
+      </ul>
+
+      <!-- ===== Download ===== -->
+      <div class="mt-14 text-center">
+        <a
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="focus-outline inline-block rounded border border-skin-accent px-6 py-2 font-medium hover:bg-skin-accent hover:text-skin-inverted"
+        >
+          Download PDF
+        </a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  #resume-intro {
+    @apply border-b border-skin-line pb-8;
+  }
+  .resume-section-title {
+    @apply mt-12 mb-6 text-xl font-semibold tracking-wide sm:text-2xl;
+  }
+  .resume-para {
+    @apply mt-4;
+  }
+  .resume-contact-link {
+    @apply underline decoration-dashed underline-offset-4 hover:text-skin-accent;
+  }
+</style>
