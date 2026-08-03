@@ -7,20 +7,20 @@ import Breadcrumbs from "@components/Breadcrumbs.astro";
 
 const summaryParagraphs = [
   "Agents will do the work. I build the worlds they work in.",
-  "My working thesis: the durable layer of the AI stack isn't the prompt, the agent, or the workflow — it's the environment. The same agent connected to GitHub is an engineering agent; connected to a production line, an industrial agent. Models supply intelligence. Environments define capability. And as language replaces the interface, software gets rebuilt first — then, I suspect, the hardware beneath it.",
-  "I've been testing this from three angles:",
+  "Most of the industry is racing to build better agents. I think the harder problem is the world those agents work in: what they can see, use, and act on — the domain semantics, state, permissions, and feedback that decide whether a capable model produces correct work. Models keep getting swapped out. Environments are what compound.",
+  "I've been attacking this from three angles:",
 ];
 
 const summaryAngles = [
-  "Vertical — xSale. Domain agents running cross-border influencer marketing end-to-end: creator discovery, outreach, content generation. Depth in one domain taught me that agents deliver real outcomes when domain knowledge lives in their environment, not just their prompts.",
-  "Interface — NLUI. A mobile app where users complete real-world tasks through pure conversation — no apps, no switching. Built on a hunch I still hold: most of today's UI is scaffolding waiting to be removed. Software first, hardware next. Led to a research collaboration with Tsinghua University.",
-  "Platform — Eigent (eigent.ai). An open-source desktop multi-agent workforce built on CAMEL-AI. I lead product engineering — agent architecture, memory and context systems, LLM infrastructure — and build the other worlds agents need: evaluation and RL training environments.",
+  "Vertical — xSale: a multi-agent system running cross-border influencer marketing end-to-end. What I learned: agents rarely fail for lack of intelligence; they fail because the environment doesn't tell them what matters here.",
+  "Interface — NLUI: a mobile MCP host where users complete real-world tasks through pure conversation. What I learned: interfaces built for humans are hostile territory for agents.",
+  "Platform — Eigent: open-source desktop multi-agent workforce built on CAMEL-AI, where I lead the architecture end-to-end — agent runtime, execution environment, and deployment.",
 ];
 
 const summaryClosing = [
-  "The question I keep turning over: enterprises will configure and govern shared environments — but every person's environment is unique, accumulated rather than installed. So the consumer form may not be a shared workspace at all, but a personal agent that learns its world. Configured environments for organizations, learned environments for people. I'm building to find out which — or whether the answer is both.",
-  "Underneath: infrastructure rigor from Shopee (tracking systems at 1M+ QPS, zero downtime at peak) and repeated 0→1 delivery.",
-  "Don't just build an agent. Build the world where any agent can work.",
+  "Here's the vision: nobody will hand-configure the worlds agents need. Too much of real work is tacit — buried in tools, exceptions, and judgment calls. The environments that matter will be discovered from how work actually happens, and every execution should leave the environment better than it found it. Real work shapes the environment; the environment improves the next piece of work.",
+  "Coding is the proof this layer matters: Git, issues, tests, CI, and review already form a structured, observable world with fast feedback — which is exactly why coding agents lead. Most domains don't have that world yet. That gap is where I work.",
+  "Don't just build an agent. Build a world that gets better every time an agent works in it.",
 ];
 
 const experience = [
